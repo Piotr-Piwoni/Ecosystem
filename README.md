@@ -1,2 +1,2 @@
 # Ecosystem
- This is a unity AI project revolving around cr-reating a valid ecosystem.
+ This is a Unity AI project revolving around re-creating a valid ecosystem.
