@@ -42,8 +42,8 @@ namespace Ecosystem
         
         private void HandleWandering()
         {
-            // If the target is within range stop wandering and following the target.
-            if (IsTargetInRange(m_Target.position, m_FOVDistance))
+            // If the target active and is within range, stop wandering and follow the target.
+            if (m_Target != null && IsTargetInRange(m_Target.position, m_FOVDistance))
             {
                 m_Agent.ResetPath(); // Stop the agent from moving.
                 m_States = CreatureStates.Following;
@@ -73,12 +73,12 @@ namespace Ecosystem
         {
             if (IsTargetInRange(m_Target.position, m_FOVDistance))
             {
-                Debug.Log($"{m_Target.name} is in radius.");
+                //Debug.Log($"{m_Target.name} is in radius.");
                 m_Agent.SetDestination(m_Target.position);
             }
             else
             {
-                Debug.Log($"{m_Target.name} is outside radius. Stopping pursuit.");
+               // Debug.Log($"{m_Target.name} is outside radius. Stopping pursuit.");
                 m_Agent.ResetPath(); // Stop the agent from moving.
 
                 m_States = CreatureStates.Wandering;
@@ -112,8 +112,15 @@ namespace Ecosystem
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag($"Food"))
-                Debug.Log("Eat: Hunger +1");
+            // Check if the agent interacted with a "Food" object.
+            if (!other.CompareTag($"Food")) return;
+            // If so, deactivate it and remove the object.
+            Debug.Log("Eat: Hunger +1");
+            other.gameObject.SetActive(false);
+            Destroy(other.gameObject, 2f);
+            
+            m_Target = null;
+            m_States = CreatureStates.Wandering; // Set the agent back to wandering.
         }
 
         private void GizmosToDraw()
