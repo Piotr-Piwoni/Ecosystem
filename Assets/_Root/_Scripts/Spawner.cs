@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Ecosystem
@@ -9,38 +12,69 @@ namespace Ecosystem
         [SerializeField] private Transform m_GroundHeightReference;
         [SerializeField] private GameObject m_Spawnable;
         [SerializeField] private int m_NumberToSpawn = 10;
+        [SerializeField] private float m_ObjectRespawnSeconds = 3f;
+
+        public List<Transform> m_SpawnedObjectPool { get; private set; }
 
         private void Start()
         {
-            for (int i = 0; i < m_NumberToSpawn; i++)
-                SpawnObject();
+            SpawnObject();
+            StartCoroutine(ReActivateSpawnedObject_CO());
         }
 
         private void SpawnObject()
         {
-            var spawnPosition = GenerateRandomPosition();
-            Instantiate(m_Spawnable, spawnPosition, Quaternion.identity).transform.SetParent(transform);
+            m_SpawnedObjectPool = new List<Transform>();
+
+            // For the desired number of objects to spawn, create them with a random
+            // position in the box area and add them to the object pool.
+            for (int i = 0; i < m_NumberToSpawn; i++)
+            {
+                var spawnedObject = Instantiate(m_Spawnable, GenerateRandomPosition(), Quaternion.identity).transform;
+                spawnedObject.SetParent(transform);
+                m_SpawnedObjectPool.Add(spawnedObject);
+            }
         }
 
         private Vector3 GenerateRandomPosition()
         {
             var spawnAreaCenter = transform.position;
+            // Calculate the inside area of the box from its center.
             var randomOffset = new Vector3(
                 Random.Range(-m_BoxAreaSize.x / 2f, m_BoxAreaSize.x / 2f),
                 Random.Range(-m_BoxAreaSize.y / 2f, m_BoxAreaSize.y / 2f),
                 Random.Range(-m_BoxAreaSize.z / 2f, m_BoxAreaSize.z / 2f)
             );
-
+            // Create the new position inside the box area.
             var newPosition = spawnAreaCenter + randomOffset;
-            
+
+            // If you're using a ground height reference, use that for the y axis instead.
             if (m_GroundHeightReference != null)
                 newPosition.y = m_GroundHeightReference.position.y;
-            
+
             return newPosition;
+        }
+
+        private IEnumerator ReActivateSpawnedObject_CO()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(m_ObjectRespawnSeconds); // Wait for a designated amount of time.
+
+                // For each spawned object check if they are de-activated.
+                foreach (var spawnedObject in m_SpawnedObjectPool.Where(spawnedObject =>
+                             !spawnedObject.gameObject.activeSelf))
+                {
+                    // Randomise their position and activate them again if so.
+                    spawnedObject.position = GenerateRandomPosition();
+                    spawnedObject.gameObject.SetActive(true);
+                }
+            }
         }
 
         private void OnDrawGizmosSelected()
         {
+            // Draws the box area gizmos.
             Gizmos.color = new Color(0f, 0.7f, 0.7f, 0.45f);
             Gizmos.matrix = transform.localToWorldMatrix;
             Gizmos.DrawCube(Vector3.zero, m_BoxAreaSize);

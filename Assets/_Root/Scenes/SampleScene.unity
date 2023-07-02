@@ -1503,7 +1503,7 @@ PrefabInstance:
     - target: {fileID: 4575637990089868746, guid: 566d87f717384c743bc3232ffb768410,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5457416068554937722, guid: 566d87f717384c743bc3232ffb768410,
         type: 3}
@@ -1688,7 +1688,8 @@ MonoBehaviour:
   m_GroundHeightReference: {fileID: 560576987}
   m_Spawnable: {fileID: 4575637990089868746, guid: 566d87f717384c743bc3232ffb768410,
     type: 3}
-  m_NumberToSpawn: 10
+  m_NumberToSpawn: 5
+  m_ObjectRespawnSeconds: 3
 --- !u!4 &727348666
 Transform:
   m_ObjectHideFlags: 0
@@ -4299,6 +4300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Creature
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737459737075512422, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8518282498047109930, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
         type: 3}
