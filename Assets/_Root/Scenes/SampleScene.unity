@@ -1713,12 +1713,37 @@ Transform:
   m_Father: {fileID: 15357570}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835326330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7737459737075512422, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
+    type: 3}
+  m_PrefabInstance: {fileID: 7069916322049236227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &835326335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1665281868465022449, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
     type: 3}
   m_PrefabInstance: {fileID: 7069916322049236227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &835326336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835326330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741d854db48957479b457b1ecde2c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CreatureInformation: {fileID: 11400000, guid: 2d81d224da566d043bd4fb0eb6117592,
+    type: 2}
+  m_TickDuration: 2
+  m_CurrentCreatureNeeds:
+    m_Hunger: 0
+    m_Energy: 0
+  m_CurrentCreatureTraits: 
 --- !u!1 &898951295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,7 +2888,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CreatureParent: {fileID: 697437823}
   m_FoodSpawner: {fileID: 727348665}
-  m_Creatures: []
 --- !u!1 &1141686531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4281,7 +4305,7 @@ PrefabInstance:
     - target: {fileID: 1665281868465022449, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.7
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1665281868465022449, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
         type: 3}
@@ -4291,7 +4315,7 @@ PrefabInstance:
     - target: {fileID: 1665281868465022449, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.2
+      value: -19.2
       objectReference: {fileID: 0}
     - target: {fileID: 1665281868465022449, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
         type: 3}
@@ -4328,11 +4352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4065196434779960396, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7737459737075512422, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
         type: 3}
       propertyPath: m_Name
@@ -4342,31 +4361,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518282498047109930, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
-        type: 3}
-      propertyPath: m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518282498047109930, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
-        type: 3}
-      propertyPath: m_FOVDistance
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518282498047109930, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
-        type: 3}
-      propertyPath: m_PersistentGizmos
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518282498047109930, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
-        type: 3}
-      propertyPath: m_WanderingDistance
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518282498047109930, guid: 8c7a4023e5372024ca6b3eb3a8342f03,
-        type: 3}
-      propertyPath: m_FoodTrackingDistance
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7a4023e5372024ca6b3eb3a8342f03, type: 3}

@@ -296,7 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501f769962343cd46b03042860189e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_FOVDistance: 10
-  m_TrackingDistance: 20
+  m_FOVDistance: 14
+  m_WanderingDistance: 17
+  m_FoodTrackingDistance: 30
   m_PersistentGizmos: 0
+  m_Target: {fileID: 0}

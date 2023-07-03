@@ -18,13 +18,17 @@ namespace Ecosystem
         private Vector3 m_NewRandomPos;
         private bool m_HasGeneratedRandomPos;
 
+        public CreatureNeedsAndTraits m_NeedsAndTraits { get; private set; }
         public Transform m_Target;
 
-        private void Start()
+        private void Awake()
         {
             m_Agent = GetComponent<NavMeshAgent>();
-            m_States = CreatureStates.Following;
+            m_NeedsAndTraits = GetComponent<CreatureNeedsAndTraits>();
+            m_Target = null;
         }
+
+        private void Start() => m_States = CreatureStates.Wandering;
 
         private void Update()
         {
@@ -40,7 +44,7 @@ namespace Ecosystem
                     throw new ArgumentOutOfRangeException();
             }
 
-            if (transform.position.IsTargetOutOfRange(m_Target.position, m_FoodTrackingDistance))
+            if (m_Target != null && transform.position.IsTargetOutOfRange(m_Target.position, m_FoodTrackingDistance))
                 m_Target = null;
 
             //Debug.Log($"Current state is {m_States}");
@@ -108,8 +112,9 @@ namespace Ecosystem
         {
             // Check if the agent interacted with a "Food" object.
             if (!other.CompareTag($"Food")) return;
-            // If so, deactivate it and remove the object.
-            Debug.Log("Eat: Hunger +1");
+            
+            // If so, deactivate it and fill up the creature's hunger need.
+            m_NeedsAndTraits.m_CurrentCreatureNeeds.m_Hunger += 15f;
             other.gameObject.SetActive(false);
 
             m_Target = null;
