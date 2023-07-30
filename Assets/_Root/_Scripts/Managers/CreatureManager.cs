@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Ecosystem.Creatures;
 using UnityEngine;
 
 namespace Ecosystem.Managers
@@ -10,18 +11,18 @@ namespace Ecosystem.Managers
         [SerializeField] private Spawner m_FoodSpawner;
         [Range(0f, 1f)] [SerializeField] private float m_HungerThreshold = 0.5f;
 
-        public static List<CreatureAgent> m_Creatures { get; private set; }
+        public static List<CreatureBehaviour> m_Creatures { get; private set; }
 
         private void Start()
         {
-            m_Creatures = new List<CreatureAgent>();
+            m_Creatures = new List<CreatureBehaviour>();
 
             // Find all objects with the CreatureAgent component and add them to the m_Creatures list.
-            var creatureAgents = FindObjectsOfType<CreatureAgent>();
-            foreach (var creatureAgent in creatureAgents)
+            var creatureBehaviours = FindObjectsOfType<CreatureBehaviour>();
+            foreach (var creatureBehaviour in creatureBehaviours)
             {
-                creatureAgent.transform.SetParent(m_CreatureParent);
-                m_Creatures.Add(creatureAgent);
+                creatureBehaviour.transform.SetParent(m_CreatureParent);
+                m_Creatures.Add(creatureBehaviour);
             }
         }
 
@@ -31,7 +32,7 @@ namespace Ecosystem.Managers
                 FindClosestFood(creature);
         }
 
-        private void FindClosestFood(CreatureAgent creature)
+        private void FindClosestFood(CreatureBehaviour creature)
         {
             // Only start finding food if the creatures doesn't have a target and their hunger is at or below their threshold.
             if (creature.m_Target != null ||

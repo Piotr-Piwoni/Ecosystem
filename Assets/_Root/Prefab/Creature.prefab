@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 5218227668239859383}
   - component: {fileID: 4065196434779960396}
   - component: {fileID: 8518282498047109930}
+  - component: {fileID: 480492696612889608}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -299,5 +300,24 @@ MonoBehaviour:
   m_FOVDistance: 14
   m_WanderingDistance: 17
   m_FoodTrackingDistance: 30
+  m_ArrivalThreshold: 0.1
   m_PersistentGizmos: 0
   m_Target: {fileID: 0}
+--- !u!114 &480492696612889608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737459737075512422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741d854db48957479b457b1ecde2c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CreatureInformation: {fileID: 0}
+  m_TickDuration: 2
+  m_CurrentCreatureNeeds:
+    m_Hunger: 0
+    m_Energy: 0
+  m_CurrentCreatureTraits: 

@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using Ecosystem.Managers;
 using Ecosystem.Scriptables;
 using UnityEngine;
 
-namespace Ecosystem
+namespace Ecosystem.Creatures
 {
     public class CreatureNeedsAndTraits : MonoBehaviour
     {
