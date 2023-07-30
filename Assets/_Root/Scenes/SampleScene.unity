@@ -1488,6 +1488,60 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &424664588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424664589}
+  - component: {fileID: 424664590}
+  m_Layer: 0
+  m_Name: Carrot Patch 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424664589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424664588}
+  m_LocalRotation: {x: -0, y: 0.1725058, z: -0, w: 0.9850085}
+  m_LocalPosition: {x: -60.5, y: 0, z: -17.3}
+  m_LocalScale: {x: 1.5136919, y: 1, z: 1.376}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 472454647}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 19.867, z: 0}
+--- !u!114 &424664590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424664588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62749a843554b318e224e5037c2f8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoxAreaSize: {x: 5, y: 10, z: 5}
+  m_GroundHeightReference: {fileID: 560576987}
+  m_Spawnable: {fileID: 8379947182809982747, guid: 20dc302956c7bde4f94d82b4eb781214,
+    type: 3}
+  m_NumberToSpawn: 15
+  m_ObjectRespawnSeconds: 3
+  m_RandomRotation:
+    x: 0
+    y: 1
+    z: 0
 --- !u!1 &472454646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1572,10 @@ Transform:
   m_Children:
   - {fileID: 560576987}
   - {fileID: 727348666}
+  - {fileID: 424664589}
+  - {fileID: 1742909896}
+  - {fileID: 865047587}
+  - {fileID: 919486565}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1687,6 +1745,10 @@ MonoBehaviour:
     type: 3}
   m_NumberToSpawn: 15
   m_ObjectRespawnSeconds: 3
+  m_RandomRotation:
+    x: 0
+    y: 1
+    z: 0
 --- !u!4 &727348666
 Transform:
   m_ObjectHideFlags: 0
@@ -1694,7 +1756,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727348664}
-  m_LocalRotation: {x: -0, y: 0.1725058, z: -0, w: 0.9850085}
+  m_LocalRotation: {x: 0, y: 0.1725051, z: 0, w: 0.98500866}
   m_LocalPosition: {x: -101, y: 0, z: 27}
   m_LocalScale: {x: 1.5136919, y: 1, z: 1.376}
   m_ConstrainProportionsScale: 0
@@ -1751,6 +1813,60 @@ Transform:
   m_Father: {fileID: 15357570}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &865047586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 865047587}
+  - component: {fileID: 865047588}
+  m_Layer: 0
+  m_Name: Carrot Patch 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &865047587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865047586}
+  m_LocalRotation: {x: -0, y: 0.1725058, z: -0, w: 0.9850085}
+  m_LocalPosition: {x: 5.2, y: 0, z: 18.5}
+  m_LocalScale: {x: 1.5136919, y: 1, z: 1.376}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 472454647}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 19.867, z: 0}
+--- !u!114 &865047588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865047586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62749a843554b318e224e5037c2f8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoxAreaSize: {x: 5, y: 10, z: 5}
+  m_GroundHeightReference: {fileID: 560576987}
+  m_Spawnable: {fileID: 8379947182809982747, guid: 20dc302956c7bde4f94d82b4eb781214,
+    type: 3}
+  m_NumberToSpawn: 15
+  m_ObjectRespawnSeconds: 3
+  m_RandomRotation:
+    x: 0
+    y: 1
+    z: 0
 --- !u!1 &898951295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2965,60 @@ Transform:
   m_Father: {fileID: 1754711790}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &919486564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919486565}
+  - component: {fileID: 919486566}
+  m_Layer: 0
+  m_Name: Carrot Patch 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919486565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919486564}
+  m_LocalRotation: {x: -0, y: 0.1725058, z: -0, w: 0.9850085}
+  m_LocalPosition: {x: -25.4, y: 0, z: -11.2}
+  m_LocalScale: {x: 1.5136919, y: 1, z: 1.376}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 472454647}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 19.867, z: 0}
+--- !u!114 &919486566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919486564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62749a843554b318e224e5037c2f8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoxAreaSize: {x: 5, y: 10, z: 5}
+  m_GroundHeightReference: {fileID: 560576987}
+  m_Spawnable: {fileID: 8379947182809982747, guid: 20dc302956c7bde4f94d82b4eb781214,
+    type: 3}
+  m_NumberToSpawn: 15
+  m_ObjectRespawnSeconds: 3
+  m_RandomRotation:
+    x: 0
+    y: 1
+    z: 0
 --- !u!1 &1044156257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3860,6 +4030,60 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1742909895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742909896}
+  - component: {fileID: 1742909897}
+  m_Layer: 0
+  m_Name: Carrot Patch 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1742909896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742909895}
+  m_LocalRotation: {x: -0, y: 0.1725058, z: -0, w: 0.9850085}
+  m_LocalPosition: {x: -56.1, y: 0, z: 30.8}
+  m_LocalScale: {x: 1.5136919, y: 1, z: 1.376}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 472454647}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 19.867, z: 0}
+--- !u!114 &1742909897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742909895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62749a843554b318e224e5037c2f8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoxAreaSize: {x: 5, y: 10, z: 5}
+  m_GroundHeightReference: {fileID: 560576987}
+  m_Spawnable: {fileID: 8379947182809982747, guid: 20dc302956c7bde4f94d82b4eb781214,
+    type: 3}
+  m_NumberToSpawn: 15
+  m_ObjectRespawnSeconds: 3
+  m_RandomRotation:
+    x: 0
+    y: 1
+    z: 0
 --- !u!1 &1754711789
 GameObject:
   m_ObjectHideFlags: 0

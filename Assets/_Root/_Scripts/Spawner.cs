@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,7 @@ namespace Ecosystem
         [SerializeField] private GameObject m_Spawnable;
         [SerializeField] private int m_NumberToSpawn = 10;
         [SerializeField] private float m_ObjectRespawnSeconds = 3f;
+        [SerializeField] private bool3 m_RandomRotation;
 
         public List<Transform> m_SpawnedObjectPool { get; private set; }
 
@@ -30,7 +32,8 @@ namespace Ecosystem
             // position in the box area and add them to the object pool.
             for (int i = 0; i < m_NumberToSpawn; i++)
             {
-                var spawnedObject = Instantiate(m_Spawnable, GenerateRandomPosition(), Quaternion.identity).transform;
+                var spawnedObject = Instantiate(m_Spawnable, GenerateRandomPosition(), GenerateRandomRotation())
+                    .transform;
                 spawnedObject.SetParent(transform);
                 m_SpawnedObjectPool.Add(spawnedObject);
             }
@@ -53,6 +56,22 @@ namespace Ecosystem
                 newPosition.y = m_GroundHeightReference.position.y;
 
             return newPosition;
+        }
+
+        private Quaternion GenerateRandomRotation()
+        {
+            var randomRotation = Quaternion.identity;
+
+            if (m_RandomRotation.x)
+                randomRotation *= Quaternion.Euler(Random.Range(0f, 360f), 0f, 0f);
+
+            if (m_RandomRotation.y)
+                randomRotation *= Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+
+            if (m_RandomRotation.z)
+                randomRotation *= Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+
+            return randomRotation;
         }
 
         private IEnumerator ReActivateSpawnedObject_CO()
