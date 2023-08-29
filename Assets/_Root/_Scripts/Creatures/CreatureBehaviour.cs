@@ -21,6 +21,7 @@ namespace Ecosystem.Creatures
 
         public CreatureNeedsAndTraits m_NeedsAndTraits { get; private set; }
         public Transform m_Target;
+         public bool m_IsHungry = false;
 
         protected virtual void Awake()
         {

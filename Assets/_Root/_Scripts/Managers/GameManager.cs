@@ -1,4 +1,5 @@
 using System;
+using Ecosystem.Managers;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,6 +12,8 @@ public class GameManager : StaticInstance<GameManager>
     public GameState State { get; private set; }
     [SerializeField] private GameState _State;
 
+    public CreatureManager m_CreatureManager;
+
     public void ChangeState(GameState newState)
     {
         OnBeforeStateChanged?.Invoke(newState);
@@ -21,8 +24,8 @@ public class GameManager : StaticInstance<GameManager>
             case GameState.Starting:
                 HandleStarting();
                 break;
-            case GameState.Game:
-                HandleGame();
+            case GameState.Simulation:
+                HandleSimulation();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -36,9 +39,11 @@ public class GameManager : StaticInstance<GameManager>
         Debug.Log("In Starting State");
     }
 
-    private void HandleGame()
+    private void HandleSimulation()
     {
-        Debug.Log("In Game State");
+        Debug.Log("In Simulation State");
+        
+        m_CreatureManager.FindCreatures();
     }
 }
 
@@ -46,5 +51,5 @@ public class GameManager : StaticInstance<GameManager>
 public enum GameState
 {
     Starting = 0,
-    Game = 1,
+    Simulation = 1,
 }

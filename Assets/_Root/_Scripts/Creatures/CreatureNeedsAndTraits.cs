@@ -20,7 +20,7 @@ namespace Ecosystem.Creatures
             m_CurrentCreatureNeeds = m_CreatureInformation.m_BaseNeeds;
             m_BaseNeeds = m_CreatureInformation.m_BaseNeeds;
             m_CurrentCreatureTraits = m_CreatureInformation.m_BaseTraits;
-
+            
             StartCoroutine(NeedsDecreasing_CO(NeedsType.Hunger));
         }
 
@@ -29,16 +29,19 @@ namespace Ecosystem.Creatures
             // Define functions to get and set the appropriate need value.
             Func<float> getNeedValue;
             Action<float> setNeedValue;
+            float maxClampValue;
 
             switch (needType)
             {
                 case NeedsType.Hunger:
                     getNeedValue = () => m_CurrentCreatureNeeds.m_Hunger;
                     setNeedValue = value => m_CurrentCreatureNeeds.m_Hunger = value;
+                    maxClampValue = m_BaseNeeds.m_Hunger;
                     break;
                 case NeedsType.Energy:
                     getNeedValue = () => m_CurrentCreatureNeeds.m_Energy;
                     setNeedValue = value => m_CurrentCreatureNeeds.m_Energy = value;
+                    maxClampValue = m_BaseNeeds.m_Energy;
                     break;
                 default:
                     Debug.LogWarning($"The NeedsType<{needType}> specified does not exist!");
@@ -52,7 +55,14 @@ namespace Ecosystem.Creatures
 
                 const float baseDecrease = 1f;
                 var currentValue = getNeedValue();
-                setNeedValue(currentValue - baseDecrease * decreaseMultiplier);
+                
+                // Calculate the new value after decrease.
+                var newValue = currentValue - baseDecrease * decreaseMultiplier;
+                
+                // Clamp the new value between 0 and the Max clamp value based on the need.
+                newValue = Mathf.Clamp(newValue, 0f, maxClampValue);
+                
+                setNeedValue(newValue);
             }
         }
         

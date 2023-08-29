@@ -11,20 +11,23 @@ namespace Ecosystem
     {
         [SerializeField] private Vector3 m_BoxAreaSize;
         [SerializeField] private Transform m_GroundHeightReference;
-        [SerializeField] private GameObject m_Spawnable;
-        [SerializeField] private int m_NumberToSpawn = 10;
         [SerializeField] private float m_ObjectRespawnSeconds = 3f;
         [SerializeField] private bool3 m_RandomRotation;
+
+        public GameObject m_Spawnable;
+        public int m_NumberToSpawn = 10;
+        public bool m_SpawnImminently = false;
 
         public List<Transform> m_SpawnedObjectPool { get; private set; }
 
         private void Start()
         {
+            if (!m_SpawnImminently) return;
             SpawnObject();
             StartCoroutine(ReActivateSpawnedObject_CO());
         }
 
-        private void SpawnObject()
+        public void SpawnObject()
         {
             m_SpawnedObjectPool = new List<Transform>();
 

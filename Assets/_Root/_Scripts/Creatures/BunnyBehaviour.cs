@@ -53,15 +53,16 @@ namespace Ecosystem.Creatures
         
         protected void OnTriggerEnter(Collider other)
         {
-            // Check if the agent interacted with a "Food" object.
-            if (!other.CompareTag($"Food")) return;
-
+            // Check if the agent interacted with a "Food" object and that they are hungry.
+            if (!other.CompareTag($"Food") || !m_IsHungry) return;
+            
             // If so, deactivate it and fill up the creature's hunger need.
             m_NeedsAndTraits.m_CurrentCreatureNeeds.m_Hunger += 15f;
             other.gameObject.SetActive(false);
 
             m_Target = null;
             m_States = CreatureStates.Wandering; // Set the agent back to wandering.
+
         }
     }
 }
